@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2: Interactive Webpage</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ApexPlanet</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#todo">To-Do App</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="grid-section">
+            <div class="content-box glass">
+                <h1>Welcome to Task 2</h1>
+                <p>This is a modern, responsive web application featuring CSS Grid, Flexbox, and Vanilla JavaScript DOM manipulation.</p>
+            </div>
+            <div class="content-box glass">
+                <h2>Features</h2>
+                <ul>
+                    <li>Fully Responsive Layout (Grid + Flexbox)</li>
+                    <li>Dynamic To-Do List via JavaScript</li>
+                    <li>Client-Side Form Validation</li>
+                    <li>Premium Glassmorphism UI</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="todo" class="todo-section">
+            <div class="todo-container glass">
+                <h2>Task Manager</h2>
+                <div class="input-group">
+                    <input type="text" id="task-input" placeholder="Add a new task...">
+                    <button id="add-btn">Add Task</button>
+                </div>
+                <ul id="task-list">
+                    <!-- Tasks will be injected here dynamically -->
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="contact-container glass">
+                <h2>Get in Touch</h2>
+                <form id="contact-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe">
+                        <span class="error-msg" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com">
+                        <span class="error-msg" id="email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Your message here..."></textarea>
+                        <span class="error-msg" id="message-error"></span>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div id="form-success" class="success-msg hidden">Thank you! Your message has been sent successfully.</div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

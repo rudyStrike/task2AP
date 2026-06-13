@@ -1,0 +1,340 @@
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-dark: #0f172a;
+    --text-light: #f8fafc;
+    --text-muted: #cbd5e1;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --error: #ef4444;
+    --success: #22c55e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15), transparent 25%),
+                      radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.15), transparent 25%);
+    background-attachment: fixed;
+}
+
+/* Glassmorphism utility */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Navbar (Flexbox) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-light);
+}
+
+/* Main Content */
+main {
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid Section */
+.grid-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.content-box h1, .content-box h2 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.content-box p, .content-box ul {
+    color: var(--text-muted);
+}
+
+.content-box ul {
+    list-style-position: inside;
+    margin-top: 1rem;
+}
+
+.content-box li {
+    margin-bottom: 0.5rem;
+}
+
+/* Sections */
+.todo-section, .contact-section {
+    margin: 4rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.todo-container, .contact-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.todo-container h2, .contact-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Inputs & Buttons */
+.input-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--text-light);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+button {
+    padding: 0.85rem 1.5rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* To-Do List Styles */
+#task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.task-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.task-item.completed span {
+    text-decoration: line-through;
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.task-item span {
+    cursor: pointer;
+    flex-grow: 1;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+.delete-btn {
+    background: transparent;
+    color: var(--error);
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    border: 1px solid var(--error);
+    font-size: 0.875rem;
+}
+
+.delete-btn:hover {
+    background: var(--error);
+    color: white;
+}
+
+/* Contact Form */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.error-msg {
+    color: var(--error);
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 0.4rem;
+    min-height: 20px;
+}
+
+.success-msg {
+    color: var(--success);
+    background: rgba(34, 197, 94, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.hidden {
+    display: none;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet (<= 768px) */
+@media (max-width: 768px) {
+    .grid-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar {
+        padding: 1.25rem 5%;
+    }
+    
+    .glass {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile (<= 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 0.5rem 0;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .delete-btn {
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Minimum 320px check (Implicit, just making sure everything scales down gracefully) */
+@media (max-width: 320px) {
+    main {
+        padding: 1rem 5%;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+}
